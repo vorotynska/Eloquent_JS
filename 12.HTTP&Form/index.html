@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>HTTP&Form</title>
+</head>
+<body>
+    <form action="#">
+        Value: <input type="text" name="value">
+        length:  length: <span id="length">0</span>
+        <hr>
+        <label>
+            <input type="checkbox" id="purple"> Make this page purple
+          </label>
+        
+          <label>
+            <input type="radio" name="color" value="orange"> Orange
+          </label>
+          <label>
+            <input type="radio" name="color" value="lightgreen"> Green
+          </label>
+          <label>
+            <input type="radio" name="color" value="lightblue"> Blue
+          </label>
+
+          <select multiple>
+            <option value="1">0001</option>
+            <option value="2">0010</option>
+            <option value="4">0100</option>
+            <option value="8">1000</option>
+          </select> = <span id="sel">0</span>
+        <button type="submit">Save</button>
+    </form>
+
+<hr>
+    <p>Imagine you are writing an article about 
+        Khasekhemwy but have some trouble spelling his name.
+         The following code wires up a textarea tag with an event handler that, when you press F2, 
+        inserts the string “Khasekhemwy” for you.</p>
+    <textarea></textarea>
+<script>
+  let textarea = document.querySelector("textarea");
+  textarea.addEventListener("keydown", event => {
+    // The key code for F2 happens to be 113
+    if (event.keyCode == 113) {
+      replaceSelection(textarea, "Khasekhemwy");
+      event.preventDefault();
+    }
+  });
+  function replaceSelection(field, word) {
+    let from = field.selectionStart, to = field.selectionEnd;
+    field.value = field.value.slice(0, from) + word +
+                  field.value.slice(to);
+    // Put the cursor after the word
+    field.selectionStart = from + word.length;
+    field.selectionEnd = from + word.length;
+  }
+</script>
+</body>
+</html>
